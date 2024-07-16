@@ -7,11 +7,11 @@ import com.example.demo.model.entity.Offer;
 import java.util.Optional;
 
 public interface OfferService {
-    boolean addDish(AddOfferDTO addDishDTO);
+    boolean addOffer(AddOfferDTO addOfferDTO);
 
-    OffersViewDTO getAllDishes();
+    OffersViewDTO getAllOffers();
 
-    void deleteDish(Long id);
+    void deleteOffer(Long id);
 
     Optional<Offer> findOfferById(Long id);
 }

@@ -3,13 +3,7 @@ package com.example.demo.model.entity;
 import com.example.demo.model.entity.BaseEntity;
 import com.example.demo.model.entity.Category;
 import com.example.demo.model.enums.CategoryEnum;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
 
@@ -23,9 +17,13 @@ public class Offer extends BaseEntity {
     @Positive
     private int price;
 
-    @Enumerated(EnumType.STRING)
-    private CategoryEnum category;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private Category category;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "shop_id", referencedColumnName = "id")
+    private Shop shop;
 
     public String getDescription() {
         return description;
@@ -36,13 +34,12 @@ public class Offer extends BaseEntity {
         return this;
     }
 
-    public CategoryEnum getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public Offer setCategory(CategoryEnum engine) {
-        this.category = engine;
-        return this;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public int getPrice() {
@@ -52,5 +49,13 @@ public class Offer extends BaseEntity {
     public Offer setPrice(int price) {
         this.price = price;
         return this;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }

@@ -74,8 +74,8 @@ public class AddOfferDTO {
         this.category = category;
     }
 
-    public ShopEnum city() {
-        return city();
+    public ShopEnum getCity() {
+        return city;
     }
 
     public void setCity(ShopEnum city) {
