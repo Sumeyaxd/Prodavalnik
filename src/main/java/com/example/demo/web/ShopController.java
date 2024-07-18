@@ -47,7 +47,7 @@ public class ShopController {
     @GetMapping("/sofia")
     public ModelAndView showSofiaInfo() {
 
-        ModelAndView modelAndView = new ModelAndView("sofia");
+        ModelAndView modelAndView = new ModelAndView("plovdiv");
 
         ShopDetailsDTO shopDetailsDTO = this.shopService.getShopDetails(ShopEnum.SOFIA);
 
