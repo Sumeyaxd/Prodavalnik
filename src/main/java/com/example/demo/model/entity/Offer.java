@@ -7,6 +7,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "offers")
 public class Offer extends BaseEntity {
@@ -15,7 +17,7 @@ public class Offer extends BaseEntity {
     private String description;
 
     @Positive
-    private int price;
+    private BigDecimal price;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "category_id", referencedColumnName = "id")
@@ -42,13 +44,12 @@ public class Offer extends BaseEntity {
         this.category = category;
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public Offer setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
-        return this;
     }
 
     public Shop getShop() {

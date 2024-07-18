@@ -11,9 +11,10 @@ import com.example.demo.service.OfferService;
 import com.example.demo.service.ShopService;
 import com.example.demo.service.UserService;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+@Service
 public class OfferServiceImpl implements OfferService {
 
     private final OfferRepository offerRepository;

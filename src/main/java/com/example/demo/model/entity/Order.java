@@ -45,11 +45,11 @@ public class Order extends BaseEntity{
     @ManyToMany
     @JoinTable(name = "orders_products",
             joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
-    private List<Order> orders;
+            inverseJoinColumns = @JoinColumn(name = "offer_id", referencedColumnName = "id"))
+    private List<Offer> offers;
 
     public Order() {
-        this.orders = new ArrayList<>();
+        this.offers = new ArrayList<>();
     }
 
     public String getDeliveryAddress() {
@@ -108,12 +108,12 @@ public class Order extends BaseEntity{
         this.client = client;
     }
 
-    public List<Order> getOrders() {
-        return orders;
+    public List<Offer> getOffers() {
+        return offers;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void setOffers(List<Offer> offers) {
+        this.offers = offers;
     }
 
     public String parseDateToString(LocalDateTime date) {
