@@ -1,7 +1,5 @@
 package com.example.demo.config;
 
-import com.example.demo.repository.UserRepository;
-import com.example.demo.service.impl.ProdavalnikUserDetailsService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
