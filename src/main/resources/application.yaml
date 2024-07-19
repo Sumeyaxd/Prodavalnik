@@ -1,38 +1,41 @@
+logging:
+    level:
+        blog: WARN
+        org:
+            hibernate:
+                SQL: DEBUG
+                type:
+                    descriptor: TRACE
+            nodeValue: WARN
+mail:
+    host: smtp.gmail.com
+    password: ${mail_password}
+    port: 25
+    prodavalnik: prodavalnik@gmail.com
+    username: ${mail_user}
+server:
+    port: 8080
 spring:
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        password: 1234
+        url: jdbc:mysql://localhost:3306/home_delivery?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+        username: root
     jpa:
+        hibernate:
+            ddl-auto: update
+        open-in-view: 'false'
         properties:
             hibernate:
                 dialect: org.hibernate.dialect.MySQL8Dialect
                 format_sql: 'TRUE'
-        hibernate:
-            ddl-auto: update
-        open-in-view: 'false'
-    sql:
-        init:
-            mode: never
+    messages:
+        basename: messages
+        encoding: UTF-8
     mvc:
         hiddenmethod:
             filter:
                 enabled: 'true'
-    datasource:
-        driverClassName: com.mysql.cj.jdbc.Driver
-        password: 1234
-        username: root
-        url: jdbc:mysql://localhost:3306/home_delivery?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
-logging:
-    level:
-        org:
-            hibernate:
-                type:
-                    descriptor: TRACE
-                SQL: DEBUG
-            nodeValue: WARN
-        blog: WARN
-server:
-    port: 8080
-mail:
-    prodavalnik: "prodavalnik@gmail.com"
-    host: smtp.gmail.com
-    port: 25
-    username: ${mail_user}
-    password: ${mail_password}
+    sql:
+        init:
+            mode: never

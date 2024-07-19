@@ -32,6 +32,7 @@ public class I18Config {
         messageSource.setBasename("classpath:i18n/messages");
         messageSource.setDefaultEncoding("UTF-8");
         messageSource.setDefaultLocale(Locale.ENGLISH);
+
         return messageSource;
     }
 }

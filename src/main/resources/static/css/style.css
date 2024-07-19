@@ -1,103 +1,109 @@
-.w-15 {
-    width: 15%;
-}
-
-.bg-gray {
-    background-color: #e9ecef;
-}
-
 body {
     background-image: url(/images/background.jpg);
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
     margin-bottom: 5rem;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .nav-item {
     margin: 0.25em;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .nav-link-button:hover {
     background-color: #212529;
+    font-size: 24px; /* Увеличен размер */
+    color: #ffffff; /* Подходящ за тъмен фон */
 }
 
 .welcome, .about {
     position: relative;
     border-radius: 12px;
     margin-top: 5em;
-    color: #b5d8f1;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #333333; /* Подходящ за бял фон */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     padding: 1em;
-    background-color: rgb(84 91 98 / 10%);
+    background-color: rgba(84, 91, 98, 0.1); /* Оригиналният фон с прозрачност */
     max-width: 1140px;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
     box-shadow: 0 4px 16px black;
-    z-index: 1;
-    box-shadow: 0 1px 5px black;
-    backdrop-filter: blur(35px);
-}
-
-.center {
-    display: block;
-    margin-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.index {
-    margin-top: 10em;
+    backdrop-filter: blur(35px); /* Оригинална замъгленост */
+    font-size: 26px; /* Увеличен размер */
 }
 
 .about {
     text-align: left !important;
+    font-size: 26px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .add-offer-form, .login {
     transition: 0.1s ease-in;
     margin-top: 6em;
-    background-color: rgb(84 91 98 / 40%);
+    background-color: rgba(84, 91, 98, 0.4);
     width: 400px;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 p {
     margin-left: 0rem;
     margin-bottom: 1rem;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .success {
     margin-bottom: 0;
+    font-size: 24px; /* Увеличен размер */
+    color: #28a745; /* Подходящ за бял фон */
 }
 
 .about-ul {
     padding-left: 1rem !important;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 li {
     margin-bottom: 0.5rem;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 textarea {
     resize: none;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .home-fields {
     border-radius: 6px;
-    background-color: rgba(39 41 42 / 40%);
+    background-color: rgba(39, 41, 42, 0.4);
     backdrop-filter: blur(15px);
     margin-bottom: 8px;
     border: #b3b8bd solid 1px;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 ul li {
     border-radius: 6px;
     margin: 0.5em;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .comments-home {
     list-style-type: none;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .info-row {
@@ -108,13 +114,16 @@ ul li {
     justify-content: start;
     padding-left: 0.5em;
     gap: 55px;
+    font-size: 24px; /* Увеличен размер */
+    color: #ffffff; /* Подходящ за тъмен фон */
 }
 
 .my-paintings {
     border-radius: 4px;
     padding: 6px;
-    color: rgba(207, 230, 243, 0.78);
+    color: #333333; /* Подходящ за бял фон */
     background-color: rgba(87, 86, 83, 0.92);
+    font-size: 24px; /* Увеличен размер */
 }
 
 .row-comments {
@@ -129,18 +138,19 @@ ul li {
 
 .my-paintings-first-row {
     padding: 0.5em;
-    color: whitesmoke;
+    color: #ffffff; /* Подходящ за тъмен фон */
     display: flex;
     align-content: flex-start;
     align-items: center;
     margin-bottom: 0.2em;
     height: 60px;
+    font-size: 24px; /* Увеличен размер */
 }
 
 .second-info {
     padding: 0.6em 0.5em 0 0.5em;
     background-color: #d3d1d1;
-    color: rgb(48, 49, 49);
+    color: #333333; /* Подходящ за бял фон */
     display: flex;
     align-items: center;
     width: 100%;
@@ -148,6 +158,7 @@ ul li {
     justify-content: space-between;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    font-size: 24px; /* Увеличен размер */
 }
 
 .buttons-info {
@@ -156,6 +167,7 @@ ul li {
     gap: 5px;
     padding-right: 1em;
     flex: 1 0 20%;
+    font-size: 24px; /* Увеличен размер */
 }
 
 button {
@@ -164,6 +176,7 @@ button {
     border: none;
     border-radius: 6px;
     padding: 10px 20px;
+    font-size: 24px; /* Увеличен размер */
 }
 
 button:hover {
@@ -171,7 +184,8 @@ button:hover {
 }
 
 .primary-text {
-    color: rgb(218, 218, 218);
+    color: #333333; /* Подходящ за бял фон */
+    font-size: 24px; /* Увеличен размер */
 }
 
 .img-thumb {
@@ -208,6 +222,7 @@ button:hover {
     width: 100%;
     padding: 20px;
     text-align: center;
+    font-size: 28px; /* Увеличен размер */
 }
 
 .image-container {
@@ -222,14 +237,19 @@ button:hover {
     text-align: center;
     padding-top: 50px;
     box-sizing: border-box;
+    font-size: 24px; /* Увеличен размер */
 }
 
 .mt-2 {
     margin-bottom: 1rem;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .list-group-item {
     width: 100%;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .preview {
@@ -240,6 +260,8 @@ button:hover {
     border-radius: 12px;
     box-shadow: 2px 3px 5px #f5f1f1;
     z-index: 10;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 #names, #authors {
@@ -247,6 +269,8 @@ button:hover {
     justify-content: flex-start;
     align-content: center;
     padding-left: 5px;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 #names {
@@ -261,11 +285,14 @@ button:hover {
     0 0.07em white,
     -0.07em 0 white,
     0 -0.07em white;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 a {
-    color: #b5d8f1;
+    color: #333333; /* Подходящ за бял фон */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 24px; /* Увеличен размер */
 }
 
 a:hover {
@@ -277,13 +304,16 @@ a:hover {
 .count, .user {
     border-radius: 4px;
     padding: 0.1em 0;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
-
 
 footer {
     position: static;
     bottom: 0;
     width: 100%;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .img-thumb {
@@ -292,11 +322,15 @@ footer {
     border: 1px solid #dee2e6;
     border-radius: .25rem;
     max-width: 100%;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .mySticky {
     position: sticky;
     left: 0;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .text-stroke {
@@ -305,14 +339,19 @@ footer {
             0 0.07em white,
             -0.07em 0 white,
             0 -0.07em white;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .text-primary{
     color: #1a00e4 !important;
+    font-size: 24px; /* Увеличен размер */
 }
 
 .table td, .table th {
     padding: 0.15rem;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .header-area {
@@ -321,19 +360,21 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: 24px; /* Увеличен размер */
+    color: #ffffff; /* Подходящ за тъмен фон */
 }
 
 .footer-text {
-    color: white;
-    font-size: 1.4em;
+    color: #333333; /* Подходящ за бял фон */
+    font-size: 2.4em; /* Увеличен размер */
     font-weight: bold;
     -webkit-text-stroke: 1px black;
 }
 
 .logo a {
-    font-size: 30px;
+    font-size: 40px; /* Увеличен размер */
     font-family: 'Open Sans', sans-serif;
-    color: #fff;
+    color: #333333; /* Подходящ за бял фон */
     font-weight: 700;
     line-height: 1.5;
     text-decoration: none;
@@ -343,11 +384,13 @@ footer {
 
 ul {
     list-style-type: circle;
+    font-size: 24px; /* Увеличен размер */
+    color: #333333; /* Подходящ за бял фон */
 }
 
 .main-menu .open-btn {
-    font-size: 30px;
-    color: #fff;
+    font-size: 40px; /* Увеличен размер */
+    color: #ffffff; /* Подходящ за тъмен фон */
     margin-right: 50px;
 }
 
@@ -362,6 +405,8 @@ ul {
     align-items: center;
     transform: translateX(100%);
     transition: all .4s ease;
+    font-size: 24px; /* Увеличен размер */
+    color: #ffffff; /* Подходящ за тъмен фон */
 }
 
 .offcanvas-menu.active {
@@ -372,22 +417,26 @@ ul {
     position: absolute;
     top: 30px;
     left: 30px;
-    font-size: 30px;
-    color: #fff;
+    font-size: 40px; /* Увеличен размер */
+    color: #ffffff; /* Подходящ за тъмен фон */
 }
 
 .offcanvas-menu ul {
     width: 100%;
+    font-size: 24px; /* Увеличен размер */
+    color: #ffffff; /* Подходящ за тъмен фон */
 }
 
 .offcanvas-menu ul li {
     list-style: none;
+    font-size: 24px; /* Увеличен размер */
+    color: #ffffff; /* Подходящ за тъмен фон */
 }
 
 .offcanvas-menu ul li a {
-    font-size: 30px;
+    font-size: 50px; /* Увеличен размер */
     font-family: 'Open Sans', sans-serif;
-    color: #fff;
+    color: #ffffff; /* Подходящ за тъмен фон */
     font-weight: 400;
     line-height: 1.5;
     display: block;
@@ -398,6 +447,7 @@ ul {
 
 .offcanvas-menu ul li a:hover {
     background: rgb(69, 21, 243);
+    color: #ffffff; /* Подходящ за тъмен фон */
 }
 
 .rating {
@@ -417,7 +467,7 @@ ul {
     overflow:hidden;
     white-space:nowrap;
     cursor:pointer;
-    font-size:300%;
+    font-size:350%; /* Увеличен размер */
     color:#ddd;
 }
 
