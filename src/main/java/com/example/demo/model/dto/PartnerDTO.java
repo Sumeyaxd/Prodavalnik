@@ -8,8 +8,6 @@ public class PartnerDTO {
 
     private String email;
 
-    private String site;
-
     private String logoUrl;
 
     public PartnerDTO() {
@@ -37,14 +35,6 @@ public class PartnerDTO {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSite() {
-        return site;
-    }
-
-    public void setSite(String site) {
-        this.site = site;
     }
 
     public String getLogoUrl() {

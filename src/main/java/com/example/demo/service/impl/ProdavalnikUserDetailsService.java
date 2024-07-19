@@ -1,6 +1,5 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.ProdavalnikUserDetails;
 import com.example.demo.model.entity.User;
 import com.example.demo.model.entity.Role;
 import com.example.demo.model.enums.RoleEnum;

@@ -2,7 +2,6 @@ package com.example.demo.web;
 
 
 import com.example.demo.model.dto.AddOfferDTO;
-import com.example.demo.model.dto.OffersViewDTO;
 import com.example.demo.service.OfferService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;

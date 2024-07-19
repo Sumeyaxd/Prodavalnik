@@ -15,41 +15,33 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+
         return httpSecurity
-                .authorizeHttpRequests(
-                        authorizeRequests ->
-                                authorizeRequests
-                                        .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                                        .requestMatchers("/", "/users/login", "/users/register", "/error", "/offers/all", "/offers/{id}", "/api/convert").permitAll()
-                                        .anyRequest()
-                                        .authenticated()
+                .authorizeHttpRequests(authorizeRequests -> authorizeRequests
+                        .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                        .requestMatchers("/about", "/comments", "/partners",
+                                "/shops/plovdiv", "/shops/burgas", "/shops/sofia").permitAll()
+                        .requestMatchers("/", "/users/login", "/users/register").anonymous()
+                        .requestMatchers("/offers/add-offer", "/orders", "/partners/add-partner").hasRole("ADMIN")
+                        .anyRequest().authenticated()
                 )
-                .formLogin(formLogin ->
-                        formLogin
-                                .loginPage("/users/login")
-                                .usernameParameter("email")
-                                .passwordParameter("password")
-                                .defaultSuccessUrl("/", true)
-                                .failureForwardUrl("/users/login-error")
+                .formLogin(formLogin -> formLogin
+                        .loginPage("/users/login").permitAll()
+                        .usernameParameter("username")
+                        .passwordParameter("password")
+                        .defaultSuccessUrl("/home", true)
+                        .failureForwardUrl("/users/login-error")
                 )
-                .logout(
-                        logout ->
-                                logout
-                                        .logoutUrl("/users/logout")
-                                        .logoutSuccessUrl("/")
-                                        .invalidateHttpSession(true)
+                .logout(logout -> logout
+                        .logoutUrl("/users/logout")
+                        .logoutSuccessUrl("/")
+                        .invalidateHttpSession(true)
                 )
                 .build();
     }
 
     @Bean
-    public ProdavalnikUserDetailsService userDetailsService(UserRepository userRepository) {
-        return new ProdavalnikUserDetailsService(userRepository);
-    }
-
-    @Bean
     public PasswordEncoder passwordEncoder() {
-        return Pbkdf2PasswordEncoder
-                .defaultsForSpringSecurity_v5_8();
+        return Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8();
     }
 }

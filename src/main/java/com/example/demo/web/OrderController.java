@@ -2,9 +2,11 @@ package com.example.demo.web;
 
 
 import com.example.demo.model.dto.AddOrderDTO;
+import com.example.demo.model.dto.OffersViewDTO;
 import com.example.demo.model.dto.OrderOfferDTO;
 
 import com.example.demo.model.dto.OrdersViewDTO;
+import com.example.demo.service.OfferService;
 import com.example.demo.service.OrderService;
 import com.example.demo.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -21,10 +23,12 @@ import java.util.List;
 public class OrderController {
 
     private final OrderService orderService;
+    private final OfferService offerService;
     private final UserService userService;
 
-    public OrderController(OrderService orderService, UserService userService) {
+    public OrderController(OrderService orderService, OfferService offerService, UserService userService) {
         this.orderService = orderService;
+        this.offerService = offerService;
         this.userService = userService;
     }
 
@@ -113,6 +117,26 @@ public class OrderController {
         }
 
         return new ModelAndView("redirect:/orders");
+    }
+
+    @GetMapping("/all")
+    public ModelAndView viewAll() {
+
+        ModelAndView modelAndView = new ModelAndView("all");
+
+        OffersViewDTO offersViewDTO = this.offerService.getAllOffers();
+
+        modelAndView.addObject("offers", offersViewDTO);
+
+        return modelAndView;
+    }
+
+    @DeleteMapping("/all/delete-offer/{id}")
+    public ModelAndView deleteDish(@PathVariable("id") Long id) {
+
+        this.offerService.deleteOffer(id);
+
+        return new ModelAndView("redirect:/offers/all");
     }
 
 }

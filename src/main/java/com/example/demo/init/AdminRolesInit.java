@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static com.example.demo.model.enums.RoleEnum.ADMINISTRATOR;
 import static com.example.demo.model.enums.RoleEnum.USER;
 
 @Component
@@ -52,7 +53,7 @@ public class AdminRolesInit implements CommandLineRunner {
 
             User user = new User();
             Optional<Role> optionalAdmin = this.roleRepository.findByRole(RoleEnum.ADMINISTRATOR);
-            Optional<Role> optionalUser = this.roleRepository.findByRole(USER);
+            Optional<Role> optionalUser = this.roleRepository.findByRole(RoleEnum.USER);
 
             List<Role> roles = new ArrayList<>();
 
@@ -63,7 +64,9 @@ public class AdminRolesInit implements CommandLineRunner {
 
             user.setUsername("admin");
             user.setFullName("Admin One");
+            user.setPhoneNumber("111222333");
             user.setEmail("homedeliverysupportbulgaria@gmail.com");
+            user.setAddress("Str. Republika 15, 4900 Madan, Smolyan");
             user.setPassword(this.passwordEncoder.encode("Admin1234"));
             user.setComments(new ArrayList<>());
             user.setOrders(new ArrayList<>());

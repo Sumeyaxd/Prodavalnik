@@ -19,13 +19,6 @@ public class User extends BaseEntity {
     @Size(min = 3, max = 40)
     private String fullName;
 
-    @Column(nullable = false)
-    @Size(min = 3, max = 40)
-    private String firstName;
-
-    @Column(nullable = false)
-    @Size(min = 3, max = 40)
-    private String lastName;
 
     @Column(nullable = false, unique = true)
     @ValidEmail
@@ -67,22 +60,6 @@ public class User extends BaseEntity {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getFullName() {

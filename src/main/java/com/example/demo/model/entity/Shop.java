@@ -42,11 +42,8 @@ public class Shop extends BaseEntity {
     @Size(min = 3, max = 50)
     private String imageUrl;
 
-    @OneToMany(mappedBy = "shop")
-    private List<Product> offeredProducts;
-
     public Shop() {
-        this.offeredProducts = new ArrayList<>();
+
     }
 
     public String getDescription() {
@@ -113,11 +110,4 @@ public class Shop extends BaseEntity {
         this.city = city;
     }
 
-    public List<Product> getOfferedProducts() {
-        return offeredProducts;
-    }
-
-    public void setOfferedProducts(List<Product> offeredProducts) {
-        this.offeredProducts = offeredProducts;
-    }
 }
