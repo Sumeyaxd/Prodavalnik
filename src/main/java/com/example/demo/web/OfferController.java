@@ -49,7 +49,7 @@ public class OfferController {
             redirectAttributes.addFlashAttribute("successMessage",
                     "Successfully added new offer!");
 
-            return new ModelAndView("redirect:/offers/menu");
+            return new ModelAndView("redirect:/offers/");
         }
 
         return new ModelAndView("add-offer");
