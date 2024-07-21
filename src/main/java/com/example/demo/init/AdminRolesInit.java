@@ -40,8 +40,8 @@ public class AdminRolesInit implements CommandLineRunner {
                         role.setRole(roleName);
 
                         String description = switch (roleName) {
-                            case ADMINISTRATOR -> "Admin can register, login, add dishes to menu, remove dishes from menu, make orders, delete orders, add comments and delete comments.";
-                            case USER -> "User can register, login, make orders, delete orders, add comments and delete comments.";
+                            case ADMINISTRATOR -> "Admin can register, login, add and remove offers, make orders, delete orders, add and delete comments.";
+                            case USER -> "User can register, login, make orders, add offers and add comments.";
                         };
 
                         role.setDescription(description);
@@ -64,10 +64,10 @@ public class AdminRolesInit implements CommandLineRunner {
 
             user.setUsername("admin");
             user.setFullName("Admin One");
-            user.setPhoneNumber("111222333");
-            user.setEmail("homedeliverysupportbulgaria@gmail.com");
-            user.setAddress("Str. Republika 15, 4900 Madan, Smolyan");
-            user.setPassword(this.passwordEncoder.encode("Admin1234"));
+            user.setPhoneNumber("0812345678");
+            user.setEmail("prodavalnik@gmail.com");
+            user.setAddress("ul. Republika 3, Smolyan, Smolyan ");
+            user.setPassword(this.passwordEncoder.encode("Administrator05"));
             user.setComments(new ArrayList<>());
             user.setOrders(new ArrayList<>());
             user.setRoles(roles);

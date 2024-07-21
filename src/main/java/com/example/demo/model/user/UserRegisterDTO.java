@@ -8,13 +8,6 @@ import jakarta.validation.constraints.Size;
 
 public class UserRegisterDTO {
 
-    @NotNull
-    @Size(min = 3, max = 20, message = "{user_register_username_length}")
-    private String firstName;
-
-    @NotNull
-    @Size(min = 3, max = 20, message = "{user_register_username_length}")
-    private String lastName;
 
     @NotNull
     @Size(min = 3, max = 20, message = "{user_register_username_length}")
@@ -46,21 +39,6 @@ public class UserRegisterDTO {
     public UserRegisterDTO() {
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName (String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getUsername() {
         return username;
