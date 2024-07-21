@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/dishes")
+@RequestMapping("/offers")
 public class OfferController {
 
     private final OfferService offerService;
@@ -22,7 +22,7 @@ public class OfferController {
     }
 
     @GetMapping("/add-offer")
-    public ModelAndView addDish(Model model) {
+    public ModelAndView addOffer(Model model) {
 
         if (!model.containsAttribute("addOfferDTO")) {
             model.addAttribute("addOfferDTO", new AddOfferDTO());
@@ -31,32 +31,32 @@ public class OfferController {
         return new ModelAndView("add-offer");
     }
 
-    @PostMapping("/add-dish")
-    public ModelAndView addDish(@Valid @ModelAttribute("addDishDTO") AddOfferDTO addOfferDTO,
+    @PostMapping("/add-offer")
+    public ModelAndView addDish(@Valid @ModelAttribute("addOfferDTO") AddOfferDTO addOfferDTO,
                                 BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("addDishDTO", addOfferDTO)
-                    .addFlashAttribute("org.springframework.validation.BindingResult.addDishDTO",
+            redirectAttributes.addFlashAttribute("addOfferDTO", addOfferDTO)
+                    .addFlashAttribute("org.springframework.validation.BindingResult.addOfferDTO",
                             bindingResult);
 
-            return new ModelAndView("add-dish");
+            return new ModelAndView("add-offer");
         }
 
         boolean isAdded = this.offerService.addOffer(addOfferDTO);
 
         if (isAdded) {
             redirectAttributes.addFlashAttribute("successMessage",
-                    "Successfully added new dish to menu!");
+                    "Successfully added new offer!");
 
-            return new ModelAndView("redirect:/dishes/menu");
+            return new ModelAndView("redirect:/offers/menu");
         }
 
-        return new ModelAndView("add-dish");
+        return new ModelAndView("add-offer");
     }
 
 
-    @DeleteMapping("/menu/delete-dish/{id}")
+    @DeleteMapping("/menu/delete-offer/{id}")
     public ModelAndView deleteDish(@PathVariable("id") Long id) {
 
         this.offerService.deleteOffer(id);
