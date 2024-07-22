@@ -22,7 +22,7 @@ public class EmailServiceImpl implements EmailService {
     private final String email;
 
     public EmailServiceImpl(TemplateEngine templateEngine, JavaMailSender javaMailSender,
-                            @Value("MAIL_PRODAVALNIK") String email) {
+                            @Value("prodavalnik.spring@gmail.com") String email) {
         this.templateEngine = templateEngine;
         this.javaMailSender = javaMailSender;
         this.email = email;
@@ -38,7 +38,7 @@ public class EmailServiceImpl implements EmailService {
             mimeMessageHelper.setTo(email);
             mimeMessageHelper.setFrom(this.email);
             mimeMessageHelper.setReplyTo(this.email);
-            mimeMessageHelper.setSubject("Welcome to Home Delivery App!");
+            mimeMessageHelper.setSubject("Welcome to Prodavalnik! We are happy to see you!");
             mimeMessageHelper.setText(generateRegistrationEmailBody(fullName), true);
 
             javaMailSender.send(mimeMessageHelper.getMimeMessage());

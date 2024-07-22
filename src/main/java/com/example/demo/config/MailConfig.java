@@ -1,6 +1,7 @@
 package com.example.demo.config;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,45 +14,13 @@ import java.util.Properties;
 @ConfigurationProperties(prefix = "mail")
 public class MailConfig {
 
-    private String host;
-    private int port;
-    private String username;
-    private String password;
-
-    public String getHost() {
-        return host;
-    }
-
-    public void setHost(String host) {
-        this.host = host;
-    }
-
-    public int getPort() {
-        return port;
-    }
-
-    public void setPort(int port) {
-        this.port = port;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     @Bean
-    public JavaMailSender javaMailSender() {
+    public JavaMailSender javaMailSender(
+            @Value("${mail.host}") String host,
+            @Value("${mail.port}") int port,
+            @Value("${mail.username}") String username,
+            @Value("${mail.password}") String password) {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
 
         javaMailSender.setHost(host);
@@ -67,9 +36,8 @@ public class MailConfig {
     private Properties mailProperties() {
         Properties properties = new Properties();
 
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.transport.protocol", "smtp");
+        properties.setProperty("mail.smtp.auth", "true");
+        properties.setProperty("mail.transport.protocol", "smtp");
 
         return properties;
     }

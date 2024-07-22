@@ -8,7 +8,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
@@ -18,9 +28,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/about", "/comments", "/partners",
-                                "/shops/plovdiv", "/shops/burgas", "/shops/sofia").permitAll()
+                                "/restaurants/korona", "/restaurants/vertu", "/restaurants/kazablanka").permitAll()
                         .requestMatchers("/", "/users/login", "/users/register").anonymous()
-                        .requestMatchers("/offers/add-offer", "/orders", "/partners/add-partner").hasRole("ADMIN")
+                        .requestMatchers("/dishes/add-dish", "/orders", "/partners/add-partner").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(formLogin -> formLogin
@@ -38,9 +48,9 @@ public class SecurityConfig {
                 .build();
     }
 
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8();
     }
+
 }

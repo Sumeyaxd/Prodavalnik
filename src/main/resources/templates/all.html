@@ -18,7 +18,7 @@
         </div>
 
         <div class="w-100 rounded">
-            <h3 class=" bg-gray text-dark  mb-0 mt-2" th:text="#{all_clothes_label}">Salads</h3>
+            <h3 class=" bg-gray text-dark  mb-0 mt-2" th:text="#{all_clothes_label}">Clothes</h3>
             <h6 th:text="${offers.getClothesCount()}" class=" bg-gray text-dark  mb-0 mt-0">{clothesCount}</h6>
             <div class="bg-dark rounded m-auto" style="height: 67vh; overflow: auto">
                 <ul th:each="offer : ${offers.getClothes()}"

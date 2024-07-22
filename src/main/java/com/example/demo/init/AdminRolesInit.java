@@ -66,7 +66,7 @@ public class AdminRolesInit implements CommandLineRunner {
             user.setFullName("Admin One");
             user.setPhoneNumber("0812345678");
             user.setEmail("prodavalnik@gmail.com");
-            user.setAddress("ul. Republika 3, Smolyan, Smolyan ");
+            user.setAddress("ul. Don 6, Plovdiv ");
             user.setPassword(this.passwordEncoder.encode("Administrator05"));
             user.setComments(new ArrayList<>());
             user.setOrders(new ArrayList<>());
