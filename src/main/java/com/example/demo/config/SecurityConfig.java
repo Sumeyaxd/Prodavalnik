@@ -28,9 +28,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/about", "/comments", "/partners",
-                                "/restaurants/korona", "/restaurants/vertu", "/restaurants/kazablanka").permitAll()
+                                "/shops/plovdiv", "/shops/sofia", "/shops/burgas").permitAll()
                         .requestMatchers("/", "/users/login", "/users/register").anonymous()
-                        .requestMatchers("/dishes/add-dish", "/orders", "/partners/add-partner").hasRole("ADMIN")
+                        .requestMatchers("/offers/add-offer", "/orders", "/partners/add-partner").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(formLogin -> formLogin
