@@ -26,7 +26,7 @@ public class SupplierController {
     @GetMapping
     public ResponseEntity<List<SupplierDTO>> getAllSuppliers() {
         return ResponseEntity.ok(
-                this.supplierService.getAllPartners()
+                this.supplierService.getAllSuppliers()
         );
     }
 
@@ -35,7 +35,7 @@ public class SupplierController {
 
         LOGGER.info("Going to add a supplier {}", addSupplierDTO);
 
-        SupplierDTO partnerDTO = this.supplierService.addPartner(addSupplierDTO);
+        SupplierDTO partnerDTO = this.supplierService.addSupplier(addSupplierDTO);
         return ResponseEntity.
                 created(ServletUriComponentsBuilder
                         .fromCurrentRequest()
@@ -48,7 +48,7 @@ public class SupplierController {
     @DeleteMapping("/{id}")
     public ResponseEntity<SupplierDTO> deleteById(@PathVariable("id") Long id) {
 
-        this.supplierService.deletePartner(id);
+        this.supplierService.deleteSupplier(id);
 
         return ResponseEntity
                 .noContent()
