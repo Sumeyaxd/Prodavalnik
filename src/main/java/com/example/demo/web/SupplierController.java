@@ -1,9 +1,14 @@
 package com.example.demo.web;
 
-import com.example.demo.model.Supplier;
+
+import com.example.demo.model.dto.AddSupplierDTO;
+import com.example.demo.model.dto.SupplierDTO;
 import com.example.demo.service.SupplierService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.List;
 
@@ -11,26 +16,42 @@ import java.util.List;
 @RequestMapping("/suppliers")
 public class SupplierController {
 
-    @Autowired
-    private SupplierService supplierService;
+    private static final Logger LOGGER = LoggerFactory.getLogger(SupplierController.class);
+    private final SupplierService supplierService;
 
-    @PostMapping
-    public Supplier addSupplier(@RequestBody Supplier supplier) {
-        return supplierService.addSupplier(supplier);
+    public SupplierController(SupplierService supplierService) {
+        this.supplierService = supplierService;
     }
 
     @GetMapping
-    public List<Supplier> getAllSuppliers() {
-        return supplierService.getAllSuppliers();
+    public ResponseEntity<List<SupplierDTO>> getAllSuppliers() {
+        return ResponseEntity.ok(
+                this.supplierService.getAllPartners()
+        );
     }
 
-    @GetMapping("/{id}")
-    public Supplier getSupplierById(@PathVariable Long id) {
-        return supplierService.getSupplierById(id);
+    @PostMapping
+    public ResponseEntity<SupplierDTO> addSupplier(@RequestBody AddSupplierDTO addSupplierDTO) {
+
+        LOGGER.info("Going to add a supplier {}", addSupplierDTO);
+
+        SupplierDTO partnerDTO = this.supplierService.addPartner(addSupplierDTO);
+        return ResponseEntity.
+                created(ServletUriComponentsBuilder
+                        .fromCurrentRequest()
+                        .path("/{id}")
+                        .buildAndExpand(partnerDTO.getId())
+                        .toUri()
+                ).body(partnerDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteSupplier(@PathVariable Long id) {
-        supplierService.deleteSupplier(id);
+    public ResponseEntity<SupplierDTO> deleteById(@PathVariable("id") Long id) {
+
+        this.supplierService.deletePartner(id);
+
+        return ResponseEntity
+                .noContent()
+                .build();
     }
 }
