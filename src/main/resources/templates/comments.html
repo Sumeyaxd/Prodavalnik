@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+
+<header th:replace="~{fragments/commons::header}"></header>
+<main>
+
+    <section class="welcome" id="big-div">
+
+        <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark"
+                                           th:text="#{comments_h1_text}">Our clients say!</span></h1>
+
+        <div th:if="${successMessage}" class="alert alert-success" role="alert">
+            <p class="success" th:text="${successMessage}"></p>
+        </div>
+
+        <h3 th:text="#{comments_h3_text} + ' ' + ${comments.getTotalRating()} + '/10'"
+            class="mySticky bg-gray text-dark user">Our clients rate us on: </h3>
+
+        <div class="row-comments">
+            <ul th:each="comment : ${comments.getComments()}"
+                class="list-group list-group-vertical text-dark">
+                <div class="home-fields" style="height: 25vh; overflow: auto">
+                    <li>
+                        <h5 th:text="${comment.getFullName()} + ' ' + #{home_says_label} + ':'"
+                            class="my-paintings">{Full name} says:</h5>
+                        <div class="my-paintings-first-row">
+                            <p th:text="${comment.getDescription()}" class="w-100">{description}</p>
+                        </div>
+                        <div class="second-info">
+                            <p th:text="#{home_comment_added_on_label} + ': ' + ${comment.getAddedOn()}">Added on: {date}</p>
+                            <p th:text="#{home_comment_rating_label} + ': ' + ${comment.getRating()}">{rating}</p>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
+
+    </section>
+</main>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>
