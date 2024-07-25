@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <img th:src="${shop.getImageUrl()}"
-                     th:alt="${shop.getName()}" style="width: 360px; height: 360px">
+                     th:alt="${shop.getCity()}" style="width: 360px; height: 360px">
             </div>
             <div class="col-lg-8">
                 <div class="card mb-4">
@@ -22,7 +22,7 @@
                                 <p class="mb-0" th:text="#{shop_name_label}">Shop city:</p>
                             </div>
                             <div class="col-sm-9">
-                                <p th:text="${shop.getName()}" class="text-muted mb-0">Shop city:</p>
+                                <p th:text="${shop.getCity()}" class="text-muted mb-0">Shop city:</p>
                             </div>
                         </div>
                         <hr>
