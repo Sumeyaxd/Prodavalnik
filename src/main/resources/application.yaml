@@ -1,5 +1,4 @@
 spring:
-<<<<<<< HEAD
   datasource:
     url: jdbc:mysql://localhost:3306/prodavalnik-suppliers
     username: root
@@ -9,7 +8,6 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5Dialect
-=======
     jpa:
         properties:
             hibernate:
@@ -57,4 +55,3 @@ mail:
                 ssl:
                     trust: smtp.gmail.com
 
->>>>>>> origin/main
