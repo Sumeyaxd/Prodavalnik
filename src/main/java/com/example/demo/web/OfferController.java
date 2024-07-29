@@ -56,7 +56,7 @@ public class OfferController {
     }
 
 
-    @DeleteMapping("/menu/delete-offer/{id}")
+    @DeleteMapping("/all/delete-offer/{id}")
     public ModelAndView deleteDish(@PathVariable("id") Long id) {
 
         this.offerService.deleteOffer(id);

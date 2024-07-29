@@ -81,7 +81,7 @@ public class OrderController {
 
         this.orderService.addToCart(id, quantity);
 
-        return new ModelAndView("redirect:/dishes/menu");
+        return new ModelAndView("redirect:/offers/all");
     }
 
     @GetMapping("/remove-from-cart/{id}")
