@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/commons::head}"></head>
+
+<body>
+<header th:replace="~{fragments/commons::header}"></header>
+<main>
+    <div class="welcome index">
+        <h1 th:text="#{index_h1_text}">Welcome to Prodavalnik - Sell what you don't need, buy what you need </h1>
+        <hr class="my-3 bg-white w-100"/>
+
+        <p class="h4" th:text="#{index_p_text}">
+            Buy and sell easily! Discover bargains and unique finds. Join now and make successful trades!</p>
+        <hr class="my-3 bg-white w-100"/>
+
+        <h3>
+            <a class="primary-text" th:href="@{/users/login}" th:text="#{index_login}">Login</a>
+            <a th:text="#{index_h3_first_half}">if you have an account or</a>
+            <a class="primary-text" th:href="@{/users/register}" th:text="#{index_register}">Register</a>
+            <a th:text="#{index_h3_second_half}">now and check our irresistible offerings.</a>
+        </h3>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

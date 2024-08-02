@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodavalnik Registration email</title>
+    <link rel="stylesheet" href="/css/email-style.css"/>
+</head>
+
+<body>
+<div class="email-container">
+    <div class="header">
+        <h1>
+            You have just successfully registered on our site! We are glad to see you! Thank you for joining our community!
+        </h1>
+    </div>
+    <div class="content">
+        <p>Hello, <th:block th:text="${fullName}"></th:block>,</p>
+        <p>We are delighted to welcome you as a new member of our family. We are committed to providing you with the best service and support. If you have any questions, need assistance, or want to learn more about our services, please don't hesitate to reach out to us.
+        </p>
+
+        <p>Once again, thank you for your trust. We look forward to working together and offering you the best experience possible.</p>
+
+        <div style="text-align: center;">
+            <img src="images/welcoming_emoji_image.jpg" alt="Welcome Emoji" style="max-width: 100%; height: auto;">
+        </div>
+
+        <p style="text-align: center;">Best regards,<br>The Prodavalnik Team</p>
+
+    </div>
+</div>
+</body>
+</html>
