@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 public class AddCommentDTO {
     @NotNull
-    @Size(min = 5, max = 150, message = "{add_comment_length}")
+    @Size(min = 5, max = 150, message = "{add_comment_comment_length}")
     private String description;
 
     @NotNull

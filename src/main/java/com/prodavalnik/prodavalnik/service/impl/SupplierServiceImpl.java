@@ -2,42 +2,60 @@ package com.prodavalnik.prodavalnik.service.impl;
 
 import com.prodavalnik.prodavalnik.model.dto.AddSupplierDTO;
 import com.prodavalnik.prodavalnik.model.dto.SupplierDTO;
-import com.prodavalnik.prodavalnik.model.entity.Supplier;
-import com.prodavalnik.prodavalnik.repository.SupplierRepository;
 import com.prodavalnik.prodavalnik.service.SupplierService;
-import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClient;
 
 import java.util.List;
 
 @Service
 public class SupplierServiceImpl implements SupplierService {
-    private final SupplierRepository supplierRepository;
-    private final ModelMapper modelMapper;
+    private static final Logger LOGGER = LoggerFactory.getLogger(SupplierServiceImpl.class);
+    private final RestClient restClient;
 
-    public SupplierServiceImpl(SupplierRepository supplierRepository, ModelMapper modelMapper) {
-        this.supplierRepository = supplierRepository;
-        this.modelMapper = modelMapper;
-    }
+    @Value("http://localhost:8080")
+    private String apiBaseUrl;
 
-
-    @Override
-    public List<SupplierDTO> getAllSuppliers() {
-        return this.supplierRepository.findAll().stream()
-                .map(supplier -> this.modelMapper.map(supplier, SupplierDTO.class))
-                .toList();
+    public SupplierServiceImpl(RestClient restClient) {
+        this.restClient = restClient;
     }
 
     @Override
-    public SupplierDTO addSupplier(AddSupplierDTO addSupplierDTO) {
-        Supplier supplier = this.modelMapper.map(addSupplierDTO, Supplier.class);
-        this.supplierRepository.saveAndFlush(supplier);
+    public void addSupplier(AddSupplierDTO addSupplierDTO) {
+        LOGGER.info("Adding new supplier...");
 
-        return this.modelMapper.map(supplier, SupplierDTO.class);
+        this.restClient
+                .post()
+                .uri(apiBaseUrl + "/suppliers")
+                .body(addSupplierDTO)
+                .retrieve();
     }
 
     @Override
     public void deleteSupplier(Long id) {
-        this.supplierRepository.deleteById(id);
+        LOGGER.info("Delete supplier...");
+
+        this.restClient
+                .delete()
+                .uri(apiBaseUrl + "/suppliers/{id}", id)
+                .retrieve()
+                .toBodilessEntity();
+    }
+
+    @Override
+    public List<SupplierDTO> getAllSuppliers() {
+        LOGGER.info("Get all suppliers...");
+
+        return this.restClient
+                .get()
+                .uri(apiBaseUrl + "/suppliers")
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .body(new ParameterizedTypeReference<List<SupplierDTO>>() {});
     }
 }

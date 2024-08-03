@@ -23,7 +23,7 @@ public class Offer extends BaseEntity {
     private BigDecimal price;
 
     @Column(name = "image_url", nullable = false)
-    @Size(min = 3, max = 50)
+    @Size(min = 3, max = 300)
     private String imageUrl;
 
     @ManyToOne(optional = false)

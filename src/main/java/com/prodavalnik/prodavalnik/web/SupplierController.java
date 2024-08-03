@@ -1,57 +1,69 @@
 package com.prodavalnik.prodavalnik.web;
 
-
 import com.prodavalnik.prodavalnik.model.dto.AddSupplierDTO;
 import com.prodavalnik.prodavalnik.model.dto.SupplierDTO;
 import com.prodavalnik.prodavalnik.service.SupplierService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
+import jakarta.validation.Valid;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/suppliers")
 public class SupplierController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SupplierController.class);
     private final SupplierService supplierService;
 
     public SupplierController(SupplierService supplierService) {
         this.supplierService = supplierService;
     }
 
+    // Метод за получаване на всички доставчици
     @GetMapping
-    public ResponseEntity<List<SupplierDTO>> getAllSuppliers() {
-        return ResponseEntity.ok(
-                this.supplierService.getAllSuppliers()
-        );
+    public ModelAndView getAllSuppliers() {
+        ModelAndView modelAndView = new ModelAndView("suppliers");
+
+        List<SupplierDTO> suppliersDTO = this.supplierService.getAllSuppliers();
+        modelAndView.addObject("suppliers", suppliersDTO);
+
+        return modelAndView;
     }
 
-    @PostMapping
-    public ResponseEntity<SupplierDTO> addSupplier(@RequestBody AddSupplierDTO addSupplierDTO) {
+    // Метод за показване на формата за добавяне на нов доставчик
+    @GetMapping("/add-supplier")
+    public ModelAndView addSupplier(Model model) {
+        if (!model.containsAttribute("addSupplierDTO")) {
+            model.addAttribute("addSupplierDTO", new AddSupplierDTO());
+        }
 
-        LOGGER.info("Going to add a supplier {}", addSupplierDTO);
-
-        SupplierDTO partnerDTO = this.supplierService.addSupplier(addSupplierDTO);
-        return ResponseEntity.
-                created(ServletUriComponentsBuilder
-                        .fromCurrentRequest()
-                        .path("/{id}")
-                        .buildAndExpand(partnerDTO.getId())
-                        .toUri()
-                ).body(partnerDTO);
+        return new ModelAndView("add-supplier");
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<SupplierDTO> deleteById(@PathVariable("id") Long id) {
+    // Метод за обработка на заявка за добавяне на нов доставчик
+    @PostMapping("/add-supplier")
+    public ModelAndView addSupplier(@Valid @ModelAttribute("addSupplierDTO") AddSupplierDTO addSupplierDTO,
+                                    BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("addSupplierDTO", addSupplierDTO)
+                    .addFlashAttribute("org.springframework.validation.BindingResult.addSupplierDTO", bindingResult);
 
+            return new ModelAndView("redirect:/suppliers/add-supplier");
+        }
+
+        this.supplierService.addSupplier(addSupplierDTO);
+        return new ModelAndView("redirect:/suppliers");
+    }
+
+    // Метод за изтриване на доставчик по ID
+    @DeleteMapping("/delete-supplier/{id}")
+    public ModelAndView deleteSupplier(@PathVariable("id") Long id) {
         this.supplierService.deleteSupplier(id);
 
-        return ResponseEntity
-                .noContent()
-                .build();
+        return new ModelAndView("redirect:/suppliers");
     }
 }

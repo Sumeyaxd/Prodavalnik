@@ -76,18 +76,18 @@
 
                 <div class="form-group col-md-6 mb-3">
                     <div class="text-white label-holder d-flex justify-content-center">
-                        <label th:for="restaurant" class="h4 mb-2" th:text="#{add_offer_shop_label}">Shop</label>
+                        <label th:for="city" class="h4 mb-2" th:text="#{add_offer_shop_label}">Shop</label>
                     </div>
-                    <select th:field="*{shop}"
+                    <select th:field="*{city}"
                             th:errorclass="is-invalid"
                             class="browser-default custom-select">
-                        <option value="">Select restaurant</option>
+                        <option value="">Select shop</option>
                         <option value="PLOVDIV">Plovdiv</option>
                         <option value="BURGAS">Burgas</option>
                         <option value="SOFIA">Sofia</option>
                     </select>
-                    <small th:if="${#fields.hasErrors('restaurant')}"
-                           th:errors="*{shop}"
+                    <small th:if="${#fields.hasErrors('city')}"
+                           th:errors="*{city}"
                            class="text-danger">Shop error message</small>
                 </div>
 

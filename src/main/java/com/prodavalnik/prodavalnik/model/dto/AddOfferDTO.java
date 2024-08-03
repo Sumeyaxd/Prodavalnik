@@ -22,13 +22,13 @@ public class AddOfferDTO {
     private BigDecimal price;
 
     @NotNull
-    @Size(min = 3, max = 50, message = "{add_offer_image_url_length}")
+    @Size(min = 3, max = 300, message = "{add_offer_image_url_length}")
     private String imageUrl;
 
     @NotNull(message = "{add_offer_category_not_null}")
     private CategoryEnum category;
 
-    @NotNull(message = "{add_city_not_null}")
+    @NotNull(message = "{add_offer_shop_not_null}")
     private ShopEnum city;
 
     public AddOfferDTO() {

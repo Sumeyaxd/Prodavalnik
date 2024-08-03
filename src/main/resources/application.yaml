@@ -40,6 +40,10 @@ logging:
 server:
   port: 8080
 
+  suppliers:
+    api:
+      baseUrl: http://localhost:8081
+
 mail:
   host: ${MAIL_HOST}
   port: ${MAIL_PORT}
