@@ -222,7 +222,7 @@ public class UserServiceImpl implements UserService {
         return this.userRepository.findById(id);
     }
 
-    private Optional<User> findUserByEmail(String email) {
+    public Optional<User> findUserByEmail(String email) {
         return this.userRepository.findByEmail(email);
     }
 

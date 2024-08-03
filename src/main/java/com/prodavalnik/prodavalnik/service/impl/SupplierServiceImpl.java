@@ -56,6 +56,6 @@ public class SupplierServiceImpl implements SupplierService {
                 .uri(apiBaseUrl + "/suppliers")
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
-                .body(new ParameterizedTypeReference<List<SupplierDTO>>() {});
+                .body(new ParameterizedTypeReference<>(){});
     }
 }

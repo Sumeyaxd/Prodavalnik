@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:hsqldb:mem:prodavalnik;sql.syntax_mys=true
+    driver-class-name: org.hsqldb.jdbcDriver
+    username: test
+    password: test
+  jpa:
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: always
+
+server:
+  port: 8080
+
+suppliers:
+  api:
+    baseUrl: "http://localhost:8080"
+
+mail:
+  prodavalnik: "prodavalnik@mail.com"
+  host: localhost
+  port: 587
+  username: prodavalnik@mail.com
+  password: 12345
