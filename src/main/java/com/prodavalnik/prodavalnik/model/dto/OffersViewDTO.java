@@ -6,22 +6,22 @@ import java.util.List;
 public class OffersViewDTO {
     private List<OfferDetailsDTO> clothes;
     private List<OfferDetailsDTO> electronics;
-    private List<OfferDetailsDTO> homeAppliances;
+    private List<OfferDetailsDTO> furniture;
 
     private int clothesCount;
     private int electronicsCount;
-    private int homeAppliancesCount;
+    private int furnitureCount;
 
     public OffersViewDTO() {
         this.clothes = new ArrayList<>();
         this.electronics = new ArrayList<>();
-        this.homeAppliances = new ArrayList<>();
+        this.furniture = new ArrayList<>();
     }
 
-    public OffersViewDTO(List<OfferDetailsDTO> clothes, List<OfferDetailsDTO> electronics, List<OfferDetailsDTO> homeAppliances) {
+    public OffersViewDTO(List<OfferDetailsDTO> clothes, List<OfferDetailsDTO> electronics, List<OfferDetailsDTO> furniture) {
         this.clothes = clothes;
         this.electronics = electronics;
-        this.homeAppliances = homeAppliances;
+        this.furniture = furniture;
     }
 
     public List<OfferDetailsDTO> getClothes() {
@@ -40,35 +40,38 @@ public class OffersViewDTO {
         this.electronics = electronics;
     }
 
-    public List<OfferDetailsDTO> getHomeAppliances() {
-        return homeAppliances;
+    public List<OfferDetailsDTO> getFurniture() {
+        return furniture;
     }
 
-    public void setHomeAppliances(List<OfferDetailsDTO> homeAppliances) {
-        this.homeAppliances = homeAppliances;
+    public void setFurniture(List<OfferDetailsDTO> furniture) {
+        this.furniture = furniture;
+    }
+
+    public int getFurnitureCount() {
+        return this.furniture.size();
+    }
+
+    public void setFurnitureCount(int furnitureCount) {
+        this.furnitureCount = furnitureCount;
     }
 
     public int getClothesCount() {
-        return clothesCount;
+        return this.clothes.size();
     }
+
 
     public void setClothesCount(int clothesCount) {
         this.clothesCount = clothesCount;
     }
 
     public int getElectronicsCount() {
-        return electronicsCount;
+        return this.electronics.size();
     }
 
     public void setElectronicsCount(int electronicsCount) {
         this.electronicsCount = electronicsCount;
     }
 
-    public int getHomeAppliancesCount() {
-        return homeAppliancesCount;
-    }
 
-    public void setHomeAppliancesCount(int homeAppliancesCount) {
-        this.homeAppliancesCount = homeAppliancesCount;
-    }
 }
