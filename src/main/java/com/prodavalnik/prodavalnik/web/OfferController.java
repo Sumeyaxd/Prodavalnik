@@ -2,6 +2,7 @@ package com.prodavalnik.prodavalnik.web;
 
 
 import com.prodavalnik.prodavalnik.model.dto.AddOfferDTO;
+import com.prodavalnik.prodavalnik.model.dto.OffersViewDTO;
 import com.prodavalnik.prodavalnik.service.OfferService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -49,10 +50,22 @@ public class OfferController {
             redirectAttributes.addFlashAttribute("successMessage",
                     "Successfully added new offer!");
 
-            return new ModelAndView("redirect:/offers/");
+            return new ModelAndView("redirect:/offers/all");
         }
 
         return new ModelAndView("add-offer");
+    }
+
+    @GetMapping("/all")
+    public ModelAndView viewAll() {
+
+        ModelAndView modelAndView = new ModelAndView("all");
+
+        OffersViewDTO offersView = this.offerService.getAllOffers();
+
+        modelAndView.addObject("offers", offersView);
+
+        return modelAndView;
     }
 
 
@@ -61,6 +74,6 @@ public class OfferController {
 
         this.offerService.deleteOffer(id);
 
-        return new ModelAndView("redirect:/offers");
+        return new ModelAndView("redirect:/offers/all");
     }
 }

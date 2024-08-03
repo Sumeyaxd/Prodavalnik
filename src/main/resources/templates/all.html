@@ -17,108 +17,129 @@
             <p class="success" th:text="${successMessage}"></p>
         </div>
 
+        <!-- Clothes Section -->
         <div class="w-100 rounded">
             <h3 class=" bg-gray text-dark  mb-0 mt-2" th:text="#{all_clothes_label}">Clothes</h3>
-            <h6 th:text="${offers.getClothesCount()}" class=" bg-gray text-dark  mb-0 mt-0">{clothesCount}</h6>
-            <div class="bg-dark rounded m-auto" style="height: 67vh; overflow: auto">
-                <ul th:each="offer : ${offers.getClothes()}"
-                    class="list-group list-group-horizontal text-dark">
-                    <li>
-                        <img th:src="${offer.getImageUrl()}" th:alt="${offer.getName()}" width="170px" height="170px">
-                    </li>
-                    <table class="list-group-item list-group-item-warning text-dark">
-                        <tr>
-                            <td th:text="${offer.getName()}" style="width: 15%">{offer name}</td>
-                            <td th:text="${offer.getDescription()}" style="width: 45%">{Description}</td>
-                            <td th:text="#{all_offered_by_label} + ': ' + ${offer.getShop()}"
-                                style="width: 15%">Shop: {name}</td>
-                            <td th:text="#{all_price_label} + ': ' + ${offer.getPrice()} + ' ' + #{make_order_currency_label}"
-                                style="width: 15%">{Price}</td>
-                            <td style="width: 10%">
-                                <form th:method="POST" th:action="@{/orders/add-to-cart/{id}(id=${offer.getId()})}">
-                                    <label th:for="quantity" th:text="#{all_quantity_label}">Quantity:</label>
-                                    <input th:name="quantity" value="" type="number" step="1" class="form-control" placeholder="1"/>
-                                    <button class="button-delete-offer"><img th:src="@{/images/add-to-cart.png}" height="50px"></button>
-                                </form>
-                            </td>
-                            <td sec:authorize="hasRole('ADMINISTRATOR')" style="width: 10%">
-                                <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.getId()})}">
-                                    <button class="button-delete-offer"><img th:src="@{/images/remove.png}" height="40px"></button>
-                                </form>
-                            </td>
-                        </tr>
-                    </table>
-                </ul>
+            <!-- Проверка дали offers не е null -->
+            <div th:if="${offers != null}">
+                <h6 th:text="${offers.getClothesCount()}" class=" bg-gray text-dark  mb-0 mt-0">{clothesCount}</h6>
+                <div class="bg-dark rounded m-auto" style="height: 67vh; overflow: auto">
+                    <ul th:each="offer : ${offers.getClothes()}"
+                        class="list-group list-group-horizontal text-dark">
+                        <li>
+                            <img th:src="${offer.getImageUrl()}" th:alt="${offer.getName()}" width="170px" height="170px">
+                        </li>
+                        <table class="list-group-item list-group-item-warning text-dark">
+                            <tr>
+                                <td th:text="${offer.getName()}" style="width: 15%">{offer name}</td>
+                                <td th:text="${offer.getDescription()}" style="width: 45%">{Description}</td>
+                                <td th:text="#{all_offered_by_label} + ': ' + ${offer.getShop()}"
+                                    style="width: 15%">Shop: {name}</td>
+                                <td th:text="#{all_price_label} + ': ' + ${offer.getPrice()} + ' ' + #{make_order_currency_label}"
+                                    style="width: 15%">{Price}</td>
+                                <td style="width: 10%">
+                                    <form th:method="POST" th:action="@{/orders/add-to-cart/{id}(id=${offer.getId()})}">
+                                        <label th:for="quantity" th:text="#{all_quantity_label}">Quantity:</label>
+                                        <input th:name="quantity" value="" type="number" step="1" class="form-control" placeholder="1"/>
+                                        <button class="button-delete-offer"><img th:src="@{/images/add-to-cart.png}" height="50px"></button>
+                                    </form>
+                                </td>
+                                <td sec:authorize="hasRole('ADMINISTRATOR')" style="width: 10%">
+                                    <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.getId()})}">
+                                        <button class="button-delete-offer"><img th:src="@{/images/remove.png}" height="40px"></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </ul>
+                </div>
+            </div>
+            <div th:if="${offers == null}">
+                <p>No offers available.</p>
             </div>
         </div>
 
+        <!-- Electronics Section -->
         <div class="w-100 rounded">
             <h3 class=" bg-gray text-dark  mb-0 mt-2" th:text="#{all_electronics_label}">Electronics</h3>
-            <h6 th:text="${offers.getElectronicsCount()}" class=" bg-gray text-dark  mb-0 mt-0">{electronicsCount}</h6>
-            <div class="bg-dark rounded m-auto" style="height: 67vh; overflow: auto">
-                <ul th:each="offer : ${offers.getElectronics()}"
-                    class="list-group list-group-horizontal text-dark">
-                    <li>
-                        <img th:src="${offer.getImageUrl()}" th:alt="${offer.getName()}" width="170px" height="170px">
-                    </li>
-                    <table class="list-group-item list-group-item-warning text-dark">
-                        <tr>
-                            <td th:text="${offer.getName()}" style="width: 15%">{offer name}</td>
-                            <td th:text="${offer.getDescription()}" style="width: 45%">{Description}</td>
-                            <td th:text="#{all_offered_by_label} + ': ' + ${offer.getShop}"
-                                style="width: 15%">Shop: {name}</td>
-                            <td th:text="#{all_price_label} + ': ' + ${offer.getPrice()} + ' ' + #{make_order_currency_label}"
-                                style="width: 15%">{Price}</td>
-                            <td style="width: 10%">
-                                <form th:method="POST" th:action="@{/orders/add-to-cart/{id}(id=${offer.getId()})}">
-                                    <label th:for="quantity" th:text="#{all_quantity_label}">Quantity:</label>
-                                    <input th:name="quantity" value="" type="number" step="1" class="form-control" placeholder="1"/>
-                                    <button class="button-delete-offer"><img th:src="@{/images/add-to-cart.png}" height="50px"></button>
-                                </form>
-                            </td>
-                            <td sec:authorize="hasRole('ADMINISTRATOR')" style="width: 10%">
-                                <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.getId()})}">
-                                    <button class="button-delete-offer"><img th:src="@{/images/remove.png}" height="40px"></button>
-                                </form>
-                            </td>
-                        </tr>
-                    </table>
-                </ul>
+            <!-- Проверка дали offers не е null -->
+            <div th:if="${offers != null}">
+                <h6 th:text="${offers.getElectronicsCount()}" class=" bg-gray text-dark  mb-0 mt-0">{electronicsCount}</h6>
+                <div class="bg-dark rounded m-auto" style="height: 67vh; overflow: auto">
+                    <ul th:each="offer : ${offers.getElectronics()}"
+                        class="list-group list-group-horizontal text-dark">
+                        <li>
+                            <img th:src="${offer.getImageUrl()}" th:alt="${offer.getName()}" width="170px" height="170px">
+                        </li>
+                        <table class="list-group-item list-group-item-warning text-dark">
+                            <tr>
+                                <td th:text="${offer.getName()}" style="width: 15%">{offer name}</td>
+                                <td th:text="${offer.getDescription()}" style="width: 45%">{Description}</td>
+                                <td th:text="#{all_offered_by_label} + ': ' + ${offer.getShop()}"
+                                    style="width: 15%">Shop: {name}</td>
+                                <td th:text="#{all_price_label} + ': ' + ${offer.getPrice()} + ' ' + #{make_order_currency_label}"
+                                    style="width: 15%">{Price}</td>
+                                <td style="width: 10%">
+                                    <form th:method="POST" th:action="@{/orders/add-to-cart/{id}(id=${offer.getId()})}">
+                                        <label th:for="quantity" th:text="#{all_quantity_label}">Quantity:</label>
+                                        <input th:name="quantity" value="" type="number" step="1" class="form-control" placeholder="1"/>
+                                        <button class="button-delete-offer"><img th:src="@{/images/add-to-cart.png}" height="50px"></button>
+                                    </form>
+                                </td>
+                                <td sec:authorize="hasRole('ADMINISTRATOR')" style="width: 10%">
+                                    <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.getId()})}">
+                                        <button class="button-delete-offer"><img th:src="@{/images/remove.png}" height="40px"></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </ul>
+                </div>
+            </div>
+            <div th:if="${offers == null}">
+                <p>No offers available.</p>
             </div>
         </div>
 
+        <!-- Furniture Section -->
         <div class="w-100 rounded">
             <h3 class=" bg-gray text-dark  mb-0 mt-2" th:text="#{all_furniture_label}">Furniture</h3>
-            <h6 th:text="${offers.getFurnitureCount()}" class=" bg-gray text-dark  mb-0 mt-0">{furnitureCount}</h6>
-            <div class="bg-dark rounded m-auto" style="height: 67vh; overflow: auto">
-                <ul th:each="offer : ${offers.getFurnitures}"
-                    class="list-group list-group-horizontal text-dark">
-                    <li>
-                        <img th:src="${offer.getImageUrl()}" th:alt="${offer.getName()}" width="170px" height="170px">
-                    </li>
-                    <table class="list-group-item list-group-item-warning text-dark">
-                        <tr>
-                            <td th:text="${offer.getName()}" style="width: 10%">{Offer name}</td>
-                            <td th:text="${offer.getDescription()}" style="width: 45%">{Description}</td>
-                            <td th:text="#{all_offered_by_label} + ': ' + ${offer.getShop}"
-                                style="width: 15%">Shop: {name}</td>
-                            <td th:text="#{all_price_label} + ': ' + ${offer.getPrice()} +  ' ' + #{make_order_currency_label}"
-                                style="width: 15%">{Price}</td>
-                            <td style="width: 10%">
-                                <form th:method="POST" th:action="@{/orders/add-to-cart/{id}(id=${offer.getId()})}">
-                                    <label th:for="quantity" th:text="#{all_quantity_label}">Quantity:</label>
-                                    <input th:name="quantity" value="" type="number" step="1" class="form-control" placeholder="1"/>
-                                    <button class="button-delete-offer"><img th:src="@{/images/add-to-cart.png}" height="50px"></button>
-                                </form>
-                            </td>
-                            <td sec:authorize="hasRole('ADMINISTRATOR')" style="width: 10%">
-                                <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.getId()})}">
-                                    <button class="button-delete-offer"><img th:src="@{/images/remove.png}" height="40px"></button>
-                                </form>
-                            </td>
-                        </tr>
-                    </table>
-                </ul>
+            <!-- Проверка дали offers не е null -->
+            <div th:if="${offers != null}">
+                <h6 th:text="${offers.getFurnitureCount()}" class=" bg-gray text-dark  mb-0 mt-0">{furnitureCount}</h6>
+                <div class="bg-dark rounded m-auto" style="height: 67vh; overflow: auto">
+                    <ul th:each="offer : ${offers.getFurnitures()}"
+                        class="list-group list-group-horizontal text-dark">
+                        <li>
+                            <img th:src="${offer.getImageUrl()}" th:alt="${offer.getName()}" width="170px" height="170px">
+                        </li>
+                        <table class="list-group-item list-group-item-warning text-dark">
+                            <tr>
+                                <td th:text="${offer.getName()}" style="width: 10%">{Offer name}</td>
+                                <td th:text="${offer.getDescription()}" style="width: 45%">{Description}</td>
+                                <td th:text="#{all_offered_by_label} + ': ' + ${offer.getShop()}"
+                                    style="width: 15%">Shop: {name}</td>
+                                <td th:text="#{all_price_label} + ': ' + ${offer.getPrice()} +  ' ' + #{make_order_currency_label}"
+                                    style="width: 15%">{Price}</td>
+                                <td style="width: 10%">
+                                    <form th:method="POST" th:action="@{/orders/add-to-cart/{id}(id=${offer.getId()})}">
+                                        <label th:for="quantity" th:text="#{all_quantity_label}">Quantity:</label>
+                                        <input th:name="quantity" value="" type="number" step="1" class="form-control" placeholder="1"/>
+                                        <button class="button-delete-offer"><img th:src="@{/images/add-to-cart.png}" height="50px"></button>
+                                    </form>
+                                </td>
+                                <td sec:authorize="hasRole('ADMINISTRATOR')" style="width: 10%">
+                                    <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.getId()})}">
+                                        <button class="button-delete-offer"><img th:src="@{/images/remove.png}" height="40px"></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </ul>
+                </div>
+            </div>
+            <div th:if="${offers == null}">
+                <p>No offers available.</p>
             </div>
         </div>
 
