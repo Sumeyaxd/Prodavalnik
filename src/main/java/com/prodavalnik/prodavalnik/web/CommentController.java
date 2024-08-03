@@ -66,7 +66,7 @@ public class CommentController {
         return new ModelAndView("add-comment");
     }
 
-    @DeleteMapping("/delete-comment/{id}")
+    @PostMapping("/delete-comment/{id}")
     public ModelAndView deleteComment(@PathVariable("id") Long id) {
 
         this.commentService.deleteComment(id);
