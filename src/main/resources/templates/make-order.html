@@ -28,7 +28,7 @@
                         <table class="list-group-item list-group-item-warning text-dark">
                             <tr>
                                 <td th:text="${offer.getName()}" style="width: 30%">{Offer name}</td>
-                                <td th:text="#{menu_quantity_label} + ' ' + ${offer.getQuantity()}"
+                                <td th:text="#{all_quantity_label} + ' ' + ${offer.getQuantity()}"
                                     style="width: 15%">Quantity:</td>
                                 <td th:text="#{make_order_total_price_label} + ': ' + ${offer.getTotalPrice()} +  ' ' + #{make_order_currency_label}"
                                     style="width: 20%">{Total price}</td>
