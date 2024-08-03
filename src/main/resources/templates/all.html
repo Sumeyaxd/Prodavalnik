@@ -44,7 +44,7 @@
                                     </form>
                                 </td>
                                 <td sec:authorize="hasRole('ADMINISTRATOR')" style="width: 10%">
-                                    <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.id})}">
+                                    <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.getId()})}">
                                         <button class="button-delete-offer"><img th:src="@{/images/remove.png}" height="40px"></button>
                                     </form>
                                 </td>
@@ -85,7 +85,7 @@
                                     </form>
                                 </td>
                                 <td sec:authorize="hasRole('ADMINISTRATOR')" style="width: 10%">
-                                    <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.id})}">
+                                    <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.getId()})}">
                                         <button class="button-delete-offer"><img th:src="@{/images/remove.png}" height="40px"></button>
                                     </form>
                                 </td>
@@ -126,7 +126,7 @@
                                     </form>
                                 </td>
                                 <td sec:authorize="hasRole('ADMINISTRATOR')" style="width: 10%">
-                                    <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.id})}">
+                                    <form th:method="DELETE" th:action="@{/offers/all/delete-offer/{id}(id=${offer.getId()})}">
                                         <button class="button-delete-offer"><img th:src="@{/images/remove.png}" height="40px"></button>
                                     </form>
                                 </td>
