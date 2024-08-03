@@ -60,7 +60,7 @@ public class OfferDetailsDTO {
         this.imageUrl = imageUrl;
     }
 
-    public ShopEnum getCity() {
+    public ShopEnum getShop() {
         return city;
     }
 

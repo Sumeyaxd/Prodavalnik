@@ -18,7 +18,7 @@ public class OffersViewDTO {
         this.homeAppliances = new ArrayList<>();
     }
 
-    public OffersViewDTO(List<OfferDetailsDTO> clothes, List<OfferDetailsDTO> electronics, List<OfferDetailsDTO> homeAppliances, int clothesCount, int electronicsCount, int homeAppliancesCount) {
+    public OffersViewDTO(List<OfferDetailsDTO> clothes, List<OfferDetailsDTO> electronics, List<OfferDetailsDTO> homeAppliances) {
         this.clothes = clothes;
         this.electronics = electronics;
         this.homeAppliances = homeAppliances;
