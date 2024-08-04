@@ -4,10 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "suppliers")
-public class Supplier {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Supplier extends BaseEntity {
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -22,14 +19,6 @@ public class Supplier {
     private String logoUrl;
 
     public Supplier() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {

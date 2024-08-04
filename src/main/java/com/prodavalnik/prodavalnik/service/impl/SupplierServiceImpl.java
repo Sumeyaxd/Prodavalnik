@@ -18,12 +18,13 @@ public class SupplierServiceImpl implements SupplierService {
     private static final Logger LOGGER = LoggerFactory.getLogger(SupplierServiceImpl.class);
     private final RestClient restClient;
 
-    @Value("http://localhost:8080")
-    private String apiBaseUrl;
 
     public SupplierServiceImpl(RestClient restClient) {
         this.restClient = restClient;
     }
+
+    @Value("http://localhost:8081")
+    private String apiBaseUrl;
 
     @Override
     public void addSupplier(AddSupplierDTO addSupplierDTO) {

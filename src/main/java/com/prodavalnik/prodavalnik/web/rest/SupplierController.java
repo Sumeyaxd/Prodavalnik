@@ -4,6 +4,7 @@ import com.prodavalnik.prodavalnik.model.dto.AddSupplierDTO;
 import com.prodavalnik.prodavalnik.model.dto.SupplierDTO;
 import com.prodavalnik.prodavalnik.service.SupplierService;
 import jakarta.validation.Valid;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
-
+@Controller
+@RequestMapping("/suppliers")
 public class SupplierController {
 
         private final SupplierService supplierService;
@@ -33,7 +35,7 @@ public class SupplierController {
         }
 
         @GetMapping("/add-supplier")
-        public ModelAndView addPartner(Model model) {
+        public ModelAndView addSupplier(Model model) {
 
             if (!model.containsAttribute("addSupplierDTO")) {
                 model.addAttribute("addSupplierDTO", new AddSupplierDTO());
@@ -43,11 +45,11 @@ public class SupplierController {
         }
 
         @PostMapping("/add-supplier")
-        public ModelAndView addPartner(@Valid @ModelAttribute("addPartnerDTO") AddSupplierDTO addSupplierDTO,
+        public ModelAndView addSupplier(@Valid @ModelAttribute("addSupplierDTO") AddSupplierDTO addSupplierDTO,
                                        BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
             if (bindingResult.hasErrors()) {
-                redirectAttributes.addFlashAttribute("addPartnerDTO", addSupplierDTO)
+                redirectAttributes.addFlashAttribute("addSupplierDTO", addSupplierDTO)
                         .addFlashAttribute("org.springframework.validation.BindingResult.addSupplierDTO",
                                 bindingResult);
 
@@ -60,7 +62,7 @@ public class SupplierController {
         }
 
         @DeleteMapping("/delete-supplier/{id}")
-        public ModelAndView deletePartner(@PathVariable("id") Long id) {
+        public ModelAndView deleteSupplier(@PathVariable("id") Long id) {
 
             this.supplierService.deleteSupplier(id);
 
