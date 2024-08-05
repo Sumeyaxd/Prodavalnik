@@ -8,11 +8,11 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public interface OrderService {
-    void addToCart(Long id, int quantity);
+    boolean addToCart(Long id, int quantity);
 
     OrderOfferDTO getAllOffersInCart();
 
-    void removeFromCart(Long id);
+    boolean removeFromCart(Long id);
 
     boolean makeOrder(AddOrderDTO addOrderDTO, BigDecimal totalPrice);
 

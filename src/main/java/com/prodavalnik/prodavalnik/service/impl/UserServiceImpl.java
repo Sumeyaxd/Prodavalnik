@@ -38,16 +38,14 @@ public class UserServiceImpl implements UserService {
     private final RoleService roleService;
     private final PasswordEncoder passwordEncoder;
     private final ModelMapper modelMapper;
-    private final JavaMailSender javaMailSender;
 
     public UserServiceImpl(ApplicationEventPublisher applicationEventPublisher, UserRepository userRepository,
-                           RoleService roleService, PasswordEncoder passwordEncoder, ModelMapper modelMapper, JavaMailSender javaMailSender) {
+                           RoleService roleService, PasswordEncoder passwordEncoder, ModelMapper modelMapper) {
         this.applicationEventPublisher = applicationEventPublisher;
         this.userRepository = userRepository;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
         this.modelMapper = modelMapper;
-        this.javaMailSender = javaMailSender;
     }
 
     @Override
@@ -227,7 +225,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void saveAndFlushUser(User user) {
-        this.userRepository.saveAndFlush(user);
+    public User saveAndFlushUser(User user) {
+        return this.userRepository.saveAndFlush(user);
     }
 }

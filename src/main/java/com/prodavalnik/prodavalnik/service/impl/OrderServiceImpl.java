@@ -41,21 +41,23 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void addToCart(Long id, int quantity) {
+    public boolean addToCart(Long id, int quantity) {
 
         if (quantity >= 1) {
             this.offersToOrder.put(id, quantity);
         }
+        return false;
     }
 
     @Override
-    public void removeFromCart(Long id) {
+    public boolean removeFromCart(Long id) {
         Optional<Offer> optionalOffer = this.offerService.findOfferById(id);
 
         if (optionalOffer.isPresent()) {
 
             this.offersToOrder.remove(id);
         }
+        return false;
     }
 
     @Override

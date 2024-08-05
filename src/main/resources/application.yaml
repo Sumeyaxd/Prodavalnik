@@ -1,54 +1,36 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/prodavalnik
+    url: jdbc:mysql://localhost:3306/prodavalnik?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-    jpa:
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.MySQL8Dialect
-          format_sql: 'TRUE'
+    properties:
       hibernate:
-        ddl-auto: update
-      open-in-view: 'false'
-    sql:
-      init:
-        mode: never
-    mvc:
-      hiddenmethod:
-        filter:
-          enabled: 'true'
-    datasource:
-      driverClassName: com.mysql.cj.jdbc.Driver
-      password: 1234
-      username: root
-      url: jdbc:mysql://localhost:3306/prodavalnik?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    open-in-view: false
+
 logging:
   level:
-    org:
-      hibernate:
-        type:
-          descriptor: TRACE
-        SQL: DEBUG
-      nodeValue: WARN
-    blog: WARN
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+
 server:
   port: 8080
 
 suppliers:
-    api:
-      baseUrl: "${OFFERS_BASE_URL:http://localhost:8081}"
+  api:
+    baseUrl: "${OFFERS_BASE_URL:http://localhost:8081}"
 
 mail:
-  host: ${MAIL_HOST}
-  port: ${MAIL_PORT}
-  username: ${MAIL_USERNAME}
-  password: ${MAIL_PASSWORD}
+  host: ${MAIL_HOST:smtp.gmail.com}
+  port: ${MAIL_PORT:587}
+  username: ${MAIL_USERNAME:your-email@gmail.com}
+  password: ${MAIL_PASSWORD:your-email-password}
   properties:
     mail:
       smtp:

@@ -20,9 +20,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/about", "/comments", "/suppliers",
-                                "/shops/plovdiv", "/shops/sofia", "/shops/burgas").permitAll()
+                                "/shops/plovdiv", "/shops/burgas", "/shops/sofia").permitAll()
                         .requestMatchers("/", "/users/login", "/users/register").anonymous()
-                        .requestMatchers( "/orders", "/suppliers/add-supplier").hasRole("ADMINISTRATOR")
+                        .requestMatchers("/offers/add-offer", "/orders", "/suppliers/add-supplier").hasRole("ADMINISTRATOR")
                         .anyRequest().authenticated()
                 )
                 .formLogin(formLogin -> formLogin
@@ -30,7 +30,7 @@ public class SecurityConfig {
                         .usernameParameter("username")
                         .passwordParameter("password")
                         .defaultSuccessUrl("/home", true)
-                        .failureForwardUrl("/users/login-error")
+                        .failureUrl("/users/login-error")
                 )
                 .logout(logout -> logout
                         .logoutUrl("/users/logout")

@@ -12,6 +12,7 @@ import java.util.Locale;
 
 @Configuration
 public class I18Config {
+
     @Bean
     public LocaleResolver localeResolver() {
 
@@ -35,4 +36,5 @@ public class I18Config {
 
         return messageSource;
     }
+
 }

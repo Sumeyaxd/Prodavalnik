@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ConfigurationProperties(prefix = "suppliers.api")
-public class SupplierApiConfig {
+public class SuppliersApiConfig {
 
     private String baseUrl;
 
@@ -13,7 +13,7 @@ public class SupplierApiConfig {
         return baseUrl;
     }
 
-    public SupplierApiConfig setBaseUrl(String baseUrl) {
+    public SuppliersApiConfig setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
         return this;
     }

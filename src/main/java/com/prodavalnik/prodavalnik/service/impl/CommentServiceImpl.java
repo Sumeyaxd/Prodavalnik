@@ -1,6 +1,5 @@
 package com.prodavalnik.prodavalnik.service.impl;
 
-
 import com.prodavalnik.prodavalnik.model.dto.AddCommentDTO;
 import com.prodavalnik.prodavalnik.model.dto.CommentsDTO;
 import com.prodavalnik.prodavalnik.model.dto.CommentsViewDTO;
@@ -79,11 +78,6 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Optional<Comment> findCommentById(Long id) {
-        return this.commentRepository.findById(id);
-    }
-
-    @Override
     public CommentsViewDTO getAllComments() {
 
         List<Comment> comments = this.commentRepository.findAll();
@@ -98,6 +92,11 @@ public class CommentServiceImpl implements CommentService {
                 }).toList();
 
         return new CommentsViewDTO(commentDetailsDTO);
+    }
+
+    @Override
+    public Optional<Comment> findCommentById(Long id) {
+        return this.commentRepository.findById(id);
     }
 
 }

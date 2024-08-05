@@ -1,0 +1,15 @@
+spring:
+  mail:
+    host: localhost
+    port: 3025
+    username: testuser
+    password: testpass
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+            required: false
+    default-encoding: UTF-8

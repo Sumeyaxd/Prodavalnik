@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
+
     private final CategoryRepository categoryRepository;
 
     public CategoryServiceImpl(CategoryRepository categoryRepository) {

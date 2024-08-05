@@ -8,8 +8,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
+import static com.prodavalnik.prodavalnik.model.enums.CategoryEnum.*;
+
 @Component
 public class CategoriesInit implements CommandLineRunner {
+
     private final CategoryRepository categoryRepository;
 
     public CategoriesInit(CategoryRepository categoryRepository) {
@@ -38,3 +41,4 @@ public class CategoriesInit implements CommandLineRunner {
         }
     }
 }
+

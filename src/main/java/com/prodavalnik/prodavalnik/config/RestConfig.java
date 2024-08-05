@@ -8,7 +8,7 @@ import org.springframework.web.client.RestClient;
 @Configuration
 public class RestConfig {
     @Bean
-    public RestClient restClient(SupplierApiConfig supplierApiConfig) {
+    public RestClient restClient(SuppliersApiConfig supplierApiConfig) {
         return RestClient
                 .builder()
                 .baseUrl(supplierApiConfig.getBaseUrl())
