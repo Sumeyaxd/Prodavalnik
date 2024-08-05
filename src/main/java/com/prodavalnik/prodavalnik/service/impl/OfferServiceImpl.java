@@ -87,22 +87,7 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public void deleteOffer(Long id) {
-
-        String username = this.userService.getLoggedUsername();
-
-        Optional<Offer> optionalOffer = this.offerRepository.findById(id);
-        Optional<User> optionalUser = this.userService.findUserByUsername(username);
-
-        if (optionalOffer.isPresent() && optionalUser.isPresent()) {
-
-            User user = optionalUser.get();
-            boolean isAdministrator = user.getRoles().stream()
-                    .anyMatch(role -> role.getRole().equals(RoleEnum.ADMINISTRATOR));
-
-            if (isAdministrator) {
-                this.offerRepository.deleteById(id);
-            }
-        }
+        offerRepository.deleteById(id);
     }
 
     @Override
