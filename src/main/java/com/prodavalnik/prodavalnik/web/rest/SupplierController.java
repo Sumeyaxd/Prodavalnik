@@ -62,7 +62,7 @@ public class SupplierController {
         return new ModelAndView("redirect:/suppliers");
     }
 
-    @DeleteMapping("/delete-supplier/{id}")
+    @PostMapping("/delete-supplier/{id}")
     public ModelAndView deleteSupplier(@PathVariable("id") Long id) {
 
         this.supplierService.deleteSupplier(id);

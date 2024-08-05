@@ -69,7 +69,7 @@ public class OfferController {
     }
 
 
-    @DeleteMapping("/all/delete-offer/{id}")
+    @PostMapping("/all/delete-offer/{id}")
     public ModelAndView deleteOffer(@PathVariable("id") Long id) {
 
         this.offerService.deleteOffer(id);

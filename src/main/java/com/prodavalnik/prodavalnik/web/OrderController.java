@@ -130,7 +130,7 @@ public class OrderController {
         return modelAndView;
     }
 
-    @DeleteMapping("/all/delete-offer/{id}")
+    @PostMapping("/all/delete-offer/{id}")
     public ModelAndView deleteOffer(@PathVariable("id") Long id) {
 
         this.offerService.deleteOffer(id);
