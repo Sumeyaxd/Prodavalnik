@@ -22,19 +22,6 @@ public class SupplierServiceImpl implements SupplierService {
         this.restClient = restClient;
     }
 
-
-    @Override
-    public List<SupplierDTO> getAllSuppliers() {
-        LOGGER.info("Get all suppliers...");
-
-        return this.restClient
-                .get()
-                .uri("/suppliers")
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
-                .body(new ParameterizedTypeReference<>(){});
-    }
-
     @Override
     public void addSupplier(AddSupplierDTO addSupplierDTO) {
         LOGGER.info("Adding new supplier...");
@@ -48,12 +35,25 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public void deleteSupplier(Long id) {
-        LOGGER.info("Delete partner...");
+        LOGGER.info("Delete supplier...");
 
         this.restClient
                 .delete()
                 .uri("/suppliers/{id}", id)
                 .retrieve()
                 .toBodilessEntity();
+    }
+
+
+    @Override
+    public List<SupplierDTO> getAllSuppliers() {
+        LOGGER.info("Get all suppliers...");
+
+        return this.restClient
+                .get()
+                .uri("/suppliers")
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .body(new ParameterizedTypeReference<>(){});
     }
 }

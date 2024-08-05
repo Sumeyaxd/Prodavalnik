@@ -290,7 +290,7 @@ button:hover {
 }
 
 a {
-    color: #333333; /* Подходящ за бял фон */
+    color: #faf6f6; /* Подходящ за бял фон */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-size: 24px; /* Увеличен размер */
 }
