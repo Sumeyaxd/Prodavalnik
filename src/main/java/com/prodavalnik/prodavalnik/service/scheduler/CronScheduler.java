@@ -1,9 +1,7 @@
 package com.prodavalnik.prodavalnik.service.scheduler;
 
 import com.prodavalnik.prodavalnik.model.entity.BaseEntity;
-import com.prodavalnik.prodavalnik.model.entity.Comment;
 import com.prodavalnik.prodavalnik.model.entity.Order;
-import com.prodavalnik.prodavalnik.repository.CommentRepository;
 import com.prodavalnik.prodavalnik.repository.OrderRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

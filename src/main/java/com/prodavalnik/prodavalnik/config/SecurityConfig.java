@@ -20,9 +20,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/about", "/comments", "/suppliers",
-                                "/shops/plovdiv", "/shops/burgas", "/shops/sofia").permitAll()
-                        .requestMatchers("/", "/users/login", "/users/register").anonymous()
-                        .requestMatchers("/offers/add-offer", "/offers/all/delete-offer/**", "/orders", "/suppliers/add-supplier").hasRole("ADMINISTRATOR")
+                                "/shops/plovdiv", "/shops/burgas", "/shops/sofia", "/", "/users/login", "/users/register","/offers/add-offer").permitAll()
+                        .requestMatchers( "/offers/all/delete-offer/**", "/orders", "/suppliers/add-supplier").hasRole("ADMINISTRATOR")
                         .anyRequest().authenticated()
                 )
                 .formLogin(formLogin -> formLogin
@@ -37,6 +36,7 @@ public class SecurityConfig {
                         .logoutSuccessUrl("/")
                         .invalidateHttpSession(true)
                 )
+
                 .build();
     }
 
