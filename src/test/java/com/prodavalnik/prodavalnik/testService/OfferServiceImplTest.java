@@ -146,7 +146,7 @@ class OfferServiceImplTest {
     }
 
     @Test
-    public void testDeleteOffer_Failure_DishNotFound() {
+    public void testDeleteOffer_Failure_OfferNotFound() {
         User adminUser = new User();
 
         Role admin = new Role();
