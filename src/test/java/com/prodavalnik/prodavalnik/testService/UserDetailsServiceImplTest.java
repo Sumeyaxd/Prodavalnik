@@ -46,15 +46,15 @@ class UserDetailsServiceImplTest {
         admin.setRole(RoleEnum.ADMINISTRATOR);
 
         User testUser = new User();
-        testUser.setUsername("pesheca");
-        testUser.setPassword("pesho1234");
-        testUser.setFullName("Pesho Petrov");
+        testUser.setUsername("testUser");
+        testUser.setPassword("test1234");
+        testUser.setFullName("Test Testov");
         testUser.setRoles(List.of(admin, user));
 
-        when(mockUserRepository.findByUsername("pesheca"))
+        when(mockUserRepository.findByUsername("testUser"))
                 .thenReturn(Optional.of(testUser));
 
-        UserDetails userDetails = userDetailsServiceToTest.loadUserByUsername("pesheca");
+        UserDetails userDetails = userDetailsServiceToTest.loadUserByUsername("testUser");
 
         assertInstanceOf(UserDetailsDTO.class, userDetails);
 
@@ -72,7 +72,7 @@ class UserDetailsServiceImplTest {
     @Test
     void testLoadUserByUsername_UserNotFound() {
         assertThrows(UsernameNotFoundException.class,
-                () -> userDetailsServiceToTest.loadUserByUsername("peshooo"));
+                () -> userDetailsServiceToTest.loadUserByUsername("testttt"));
     }
 
 }
