@@ -66,7 +66,7 @@ public class OrderController {
         return new ModelAndView("redirect:/home");
     }
 
-    @DeleteMapping("/delete-order/{id}")
+    @PostMapping("/delete-order/{id}")
     public ModelAndView deleteOrder(@PathVariable("id") Long id) {
 
         this.orderService.deleteOrder(id);
