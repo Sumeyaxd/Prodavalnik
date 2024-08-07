@@ -61,10 +61,6 @@ Here are some visualizations of the website:
   <img src="src/main/resources/static/images/screenshots/Screenshot 2024-08-07 at 18.58.14.png"/>
 </div>
 <div class="image-container">
-  <p>Only for administrator pages: Add supplier page:</p>
-  <img src="src/main/resources/static/images/screenshots/Screenshot 2024-08-07 at 18.58.14.png" alt="Screenshot 2024-08-05 144432"/>
-</div>
-<div class="image-container">
   <p>Only for administrator pages: Suppliers:</p>
   <img src="src/main/resources/static/images/screenshots/Screenshot 2024-08-07 at 19.01.46.png" alt="Screenshot 2024-08-05 144432"/>
 </div>
