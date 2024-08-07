@@ -17,7 +17,6 @@ The **Prodavalnik** is a robust e-commerce platform built with Spring Boot, deli
 - Ensure you have Java and Gradle installed.
 - Clone the repository and navigate to the project directory.
 - Necessary environment variables: MAIL_USERNAME, MAIL_PASSWORD
-- Use `mvn spring-boot:run` to start the application.
 - Access the application via [http://localhost:8080](http://localhost:8080).
 - Access the REST API application via [here](https://github.com/Sumeyaxd/Prodavalnik-Supplier/tree/main) server port: [http://localhost:8081](http://localhost:8081)
   
