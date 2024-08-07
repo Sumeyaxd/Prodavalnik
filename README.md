@@ -3,6 +3,29 @@
 ## Overview
 
 The **Prodavalnik** is a robust e-commerce platform built with Spring Boot, delivering a comprehensive suite of features to facilitate product management, order processing, user administration, and review handling. It integrates email services and scheduled tasks, ensuring seamless operations and an enhanced shopping experience for users. Designed with both customers and administrators in mind, Prodavalnik offers efficient tools and functionalities for effective e-commerce management, ensuring a smooth and enjoyable online shopping journey.
+
+## Getting Started
+
+### Prerequisites
+
+- Java 11 or higher
+- Maven 3.6.3 or higher
+- MySQL or PostgreSQL database
+
+## To Run the Application:
+
+- Ensure you have Java and Gradle installed.
+- Clone the repository and navigate to the project directory.
+- Necessary environment variables: MAIL_USERNAME, MAIL_PASSWORD
+- Use `mvn spring-boot:run` to start the application.
+- Access the application via [http://localhost:8080](http://localhost:8080).
+- Access the REST API application via [here](https://github.com/Sumeyaxd/Prodavalnik-Supplier/tree/main) server port: [http://localhost:8081](http://localhost:8081)
+  
+## Database Configuration:
+
+- Ensure to configure the database settings in `application.yaml` for proper persistence.
+
+
 ## Key Features
 
 - **User Management**: Register, update, and delete users with secure password encoding and role-based access control.
@@ -87,23 +110,4 @@ Here are some visualizations of the website:
 - **MySQL**: Primary databases for production.
 - **Java GreenMail**: Library for testing email functionality
 
-## Getting Started
-
-### Prerequisites
-
-- Java 11 or higher
-- Maven 3.6.3 or higher
-- MySQL or PostgreSQL database
-
-## To Run the Application:
-
-- Ensure you have Java and Gradle installed.
-- Clone the repository and navigate to the project directory.
-- Necessary environment variables: MAIL_USERNAME, MAIL_PASSWORD
-- Use `mvn spring-boot:run` to start the application.
-- Access the application via [http://localhost:8080](http://localhost:8080).
-- Access the REST API application via [here](https://github.com/Sumeyaxd/Prodavalnik-Supplier/tree/main) server port: [http://localhost:8081](http://localhost:8081)
-## Database Configuration:
-
-- Ensure to configure the database settings in `application.yaml` for proper persistence.
 
