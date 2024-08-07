@@ -13,7 +13,7 @@ The **Prodavalnik** is a robust e-commerce platform built with Spring Boot, deli
 - MySQL or PostgreSQL database
 
 ## To Run the Application:
-
+- To get as close as possible to my point of view (point of elaboration) - resolution - 2880 × 1864, PC - macBook
 - Ensure you have Java and Gradle installed.
 - Clone the repository and navigate to the project directory.
 - Necessary environment variables: MAIL_USERNAME, MAIL_PASSWORD
