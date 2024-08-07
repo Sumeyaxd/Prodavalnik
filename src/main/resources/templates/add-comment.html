@@ -40,7 +40,7 @@
                     <label th:for="rating" class="h4 mb-2" th:text="#{add_comment_rate_label}">How would you rate our service?</label>
                 </div>
                 <div><small class="danger"
-                            th:text="#{add_comment_rate_message}">1 star being the lowest, 6 stars being the highest</small></div>
+                            th:text="#{add_comment_rate_message}">1 star being the lowest, 10 stars being the highest</small></div>
                 <div th:field="*{rating}"
                      th:errorclass="is-invalid" name="rating"
                      class="rating">
@@ -50,6 +50,10 @@
                     <input type="radio" id="star4" name="rating" value="7" /><label for="star4">4 stars</label>
                     <input type="radio" id="star5" name="rating" value="6" /><label for="star5">5 stars</label>
                     <input type="radio" id="star6" name="rating" value="5" /><label for="star6">6 stars</label>
+                    <input type="radio" id="star7" name="rating" value="5" /><label for="star6">7 stars</label>
+                    <input type="radio" id="star8" name="rating" value="5" /><label for="star6">8 stars</label>
+                    <input type="radio" id="star9" name="rating" value="5" /><label for="star6">9 stars</label>
+                    <input type="radio" id="star10" name="rating" value="5" /><label for="star6">10 stars</label>
                 </div>
             </div>
 

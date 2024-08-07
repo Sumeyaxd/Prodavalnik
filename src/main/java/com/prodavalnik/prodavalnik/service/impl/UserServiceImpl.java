@@ -1,6 +1,5 @@
 package com.prodavalnik.prodavalnik.service.impl;
 
-
 import com.prodavalnik.prodavalnik.model.dto.CommentsDTO;
 import com.prodavalnik.prodavalnik.model.dto.OrderDetailsDTO;
 import com.prodavalnik.prodavalnik.model.entity.Role;
@@ -16,7 +15,6 @@ import com.prodavalnik.prodavalnik.service.UserService;
 import com.prodavalnik.prodavalnik.service.events.UserRegistration;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,9 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -189,6 +185,26 @@ public class UserServiceImpl implements UserService {
                     return true;
                 }
             }
+            case ADDRESS -> {
+                String newAddress = userUpdateInfoDTO.getData();
+
+                if (newAddress.length() >= 3 && newAddress.length() <= 100) {
+                    user.setAddress(newAddress);
+                    this.saveAndFlushUser(user);
+
+                    return true;
+                }
+            }
+            case PHONE_NUMBER -> {
+                String newPhoneNumber = userUpdateInfoDTO.getData();
+
+                if (newPhoneNumber.length() >= 7 && newPhoneNumber.length() <= 15) {
+                    user.setPhoneNumber(newPhoneNumber);
+                    this.saveAndFlushUser(user);
+
+                    return true;
+                }
+            }
         }
 
         return false;
@@ -220,6 +236,7 @@ public class UserServiceImpl implements UserService {
         return this.userRepository.findById(id);
     }
 
+    @Override
     public Optional<User> findUserByEmail(String email) {
         return this.userRepository.findByEmail(email);
     }

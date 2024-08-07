@@ -467,7 +467,7 @@ ul {
     overflow:hidden;
     white-space:nowrap;
     cursor:pointer;
-    font-size:350%; /* Увеличен размер */
+    font-size:230%; /* Увеличен размер */
     color:#ddd;
 }
 
@@ -476,12 +476,12 @@ ul {
 }
 
 .rating > input:checked ~ label {
-    color: dodgerblue;
+    color: #ffe11e;
 }
 
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
-    color: dodgerblue;
+    color: #ffec1e;
 }
 
 .rating > input:checked + label:hover,
@@ -489,7 +489,7 @@ ul {
 .rating > input:checked ~ label:hover,
 .rating > input:checked ~ label:hover ~ label,
 .rating > label:hover ~ input:checked ~ label {
-    color: dodgerblue;
+    color: #ffec1e;
 }
 
 .rating > label:active {
