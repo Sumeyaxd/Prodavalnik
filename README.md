@@ -57,10 +57,6 @@ Here are some visualizations of the website:
   <img src="src/main/resources/static/images/screenshots/Screenshot 2024-08-07 at 19.45.54.png" alt="Screenshot 2024-08-05 144432"/>
 </div>
 <div class="image-container">
-  <p>Comments section:</p>
-  <img src="src/main/resources/static/images/screenshots/Screenshot 2024-08-07 at 18.59.31.png" alt="Screenshot 2024-08-05 144432"/>
-</div>
-<div class="image-container">
   <p>One of the shop page:</p>
   <img src="src/main/resources/static/images/screenshots/Screenshot 2024-08-07 at 18.58.14.png"/>
 </div>
